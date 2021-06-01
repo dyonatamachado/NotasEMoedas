@@ -28,6 +28,7 @@ namespace NotasEMoedas
             tipomoedas[4] = 0.05;
             tipomoedas[5] = 0.01;
 
+            Console.WriteLine("Digite o valor! (Favor usar vírgula para separar os centavos)");
             valor = Convert.ToDouble(Console.ReadLine());
 
             while (valor != 0)
@@ -76,29 +77,39 @@ namespace NotasEMoedas
                 }
                 else if (valor >= 0.5 && valor < 1)
                 {
-                    moedas[1] = (int)valor * 2;
+                    moedas[1] = (int)(valor * 2);
                     valor -= moedas[1] * 0.5;
+                    var auxiliar = valor.ToString("N2");
+                    valor = Convert.ToDouble(auxiliar);
                 }
                 else if (valor >= 0.25 && valor < 0.5)
                 {
-                    moedas[2] = (int)valor * 4;
+                    moedas[2] = (int)(valor * 4);
                     valor -= moedas[2] * 0.25;
+                    var auxiliar = valor.ToString("N2");
+                    valor = Convert.ToDouble(auxiliar);
                 }
                 else if (valor >= 0.1 && valor < 0.25)
                 {
-                    moedas[3] = (int)valor * 10;
+                    moedas[3] = (int)(valor * 10);
                     valor -= moedas[3] * 0.1;
+                    var auxiliar = valor.ToString("N2");
+                    valor = Convert.ToDouble(auxiliar);
                 }
                 else if (valor >= 0.05 && valor < 0.1)
                 {
-                    moedas[4] = (int)valor * 20;
+                    moedas[4] = (int)(valor * 20);
                     valor -= moedas[4] * 0.05;
+                    var auxiliar = valor.ToString("N2");
+                    valor = Convert.ToDouble(auxiliar);
                 }
                 else if (valor >= 0.01 && valor < 0.05)
                 {
-                    moedas[5] = (int)valor * 100;
+                    moedas[5] = (int)(valor * 100);
                     valor -= moedas[5] * 0.01;
-                }
+                    var auxiliar = valor.ToString("N2");
+                    valor = Convert.ToDouble(auxiliar);
+                } 
 
             }
 
@@ -113,7 +124,7 @@ namespace NotasEMoedas
 
             for (int i = 0; i <= 5; i++)
             {
-                Console.WriteLine(moedas[i] + " nota(s) de R$ " + tipomoedas[i].ToString("N2"));
+                Console.WriteLine(moedas[i] + " moeda(s) de R$ " + tipomoedas[i].ToString("N2"));
             }
 
 
